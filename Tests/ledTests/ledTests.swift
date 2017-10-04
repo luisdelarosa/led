@@ -52,6 +52,12 @@ class LEDTests: XCTestCase {
         led.value = 0
         XCTAssertFalse(led.isOn())
     }
+    
+    // simpler constructor
+    func testSimplerConstructor() {
+        let led = LED(gpioPin: .P17, forBoard: .RaspberryPi3)
+        XCTAssertTrue(led.isOff())
+    }
 
     static var allTests = [
         ("testLEDIsOffByDefault", testLEDIsOffByDefault),
@@ -61,6 +67,7 @@ class LEDTests: XCTestCase {
         ("testLEDIsNotOffAfterSettingValueBackTo0", testLEDIsNotOffAfterSettingValueBackTo0),
         ("testLEDIsNotOnByDefault", testLEDIsNotOnByDefault),
         ("testLEDIsOnAfterSettingValueTo1", testLEDIsOnAfterSettingValueTo1),
-        ("testLEDIsOffAfterSettingValueBackTo0", testLEDIsOffAfterSettingValueBackTo0)
+        ("testLEDIsOffAfterSettingValueBackTo0", testLEDIsOffAfterSettingValueBackTo0),
+        ("testSimplerConstructor", testSimplerConstructor)
     ]
 }

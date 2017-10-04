@@ -26,18 +26,22 @@ public class LED {
         }
     }
     
+    public convenience init(gpioPin: GPIOName, forBoard board: SupportedBoard) {
+        let swiftyGPIOs = SwiftyGPIO.GPIOs(for: board)
+        self.init(gpioPin: gpioPin, swiftyGPIOs: swiftyGPIOs)
+    }
     
     public init(gpioPin: GPIOName, swiftyGPIOs: [GPIOName: GPIO]) {
         self.gpioPin = gpioPin
         
         self.gpio = swiftyGPIOs[self.gpioPin]
 
-	// Set direction to out so we can write to the pin
-	if let gpio = self.gpio {
-            #if os(Linux)
-		gpio.direction = .OUT
-	    #endif
-	}
+        // Set direction to out so we can write to the pin
+        if let gpio = self.gpio {
+                #if os(Linux)
+            gpio.direction = .OUT
+            #endif
+        }
     }
     
     public func isOff() -> Bool {
