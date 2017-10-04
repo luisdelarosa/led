@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import SwiftyGPIO
 
 public class LED {
+    
+    public var value: Int = 0
+    
     public func isOff() -> Bool {
-        return true
+        return value == 0
     }
+    
 }

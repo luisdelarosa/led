@@ -3,5 +3,8 @@
 import PackageDescription
 
 let package = Package(
-    name: "led"
+    name: "led",
+    dependencies: [
+        .Package(url: "https://github.com/uraimo/SwiftyGPIO.git", majorVersion: 0),
+    ]
 )
