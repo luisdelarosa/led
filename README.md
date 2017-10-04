@@ -17,3 +17,5 @@ led.value = 1
 ```
 
 See [**blink** aka Hello World for Swift on Raspberry Pi: Blink an LED](https://github.com/luisdelarosa/blink) for a full example.
+
+Thanks to @uraimo for [SwiftyGPIO](https://github.com/uraimo/SwiftyGPIO), which this module relies on.
