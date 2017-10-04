@@ -1,6 +1,6 @@
 import XCTest
-@testable import SwiftPiLEDTests
+@testable import ledTests
 
 XCTMain([
-    testCase(SwiftPiLEDTests.allTests),
+    testCase(ledTests.allTests),
 ])

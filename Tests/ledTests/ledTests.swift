@@ -2,7 +2,7 @@ import XCTest
 @testable import led
 @testable import SwiftyGPIO
 
-class LEDTests: XCTestCase {
+class ledTests: XCTestCase {
     // value
     func testLEDIs0ByDefault() {
         let led = LED(gpioPin: .P17, swiftyGPIOs: SwiftyGPIO.GPIOs(for: .RaspberryPi3))
