@@ -31,6 +31,13 @@ public class LED {
         self.gpioPin = gpioPin
         
         self.gpio = swiftyGPIOs[self.gpioPin]
+
+	// Set direction to out so we can write to the pin
+	if let gpio = self.gpio {
+            #if os(Linux)
+		gpio.direction = .OUT
+	    #endif
+	}
     }
     
     public func isOff() -> Bool {
