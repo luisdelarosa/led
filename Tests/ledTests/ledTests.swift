@@ -57,6 +57,15 @@ class LEDTests: XCTestCase {
     func testSimplerConstructor() {
         let led = LED(gpioPin: .P17, forBoard: .RaspberryPi3)
         XCTAssertTrue(led.isOff())
+        XCTAssertEqual(.P17, led.gpioPin)
+        XCTAssertNotNil(led.gpio)
+    }
+
+    func testSimplerConstructorWithDefaultRaspberryPi3Pins() {
+        let led = LED(gpioPin: .P17)
+        XCTAssertTrue(led.isOff())
+        XCTAssertEqual(.P17, led.gpioPin)
+        XCTAssertNotNil(led.gpio)
     }
 
     static var allTests = [

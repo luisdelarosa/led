@@ -26,11 +26,26 @@ public class LED {
         }
     }
     
-    public convenience init(gpioPin: GPIOName, forBoard board: SupportedBoard) {
+    
+    /**
+        Initializes a LED, the easy way.
+     
+        - Parameters:
+            - gpioPin: The pin that LED is connected to. Use a GPIOName type. Ex: .P17 for GPIO pin 17.
+            - board: The board that is supported. By default, it is a .RaspberryPi3.
+     */
+    public convenience init(gpioPin: GPIOName, forBoard board: SupportedBoard = .RaspberryPi3) {
         let swiftyGPIOs = SwiftyGPIO.GPIOs(for: board)
         self.init(gpioPin: gpioPin, swiftyGPIOs: swiftyGPIOs)
     }
-    
+
+    /**
+         Initializes a LED.
+         
+         - Parameters:
+             - gpioPin: The pin that LED is connected to. Use a GPIOName type. Ex: .P17 for GPIO pin 17.
+             - swiftyGPIOs: A dictionary created by SwiftyGPIO.GPIOs(for: .SupportedBoard).
+     */
     public init(gpioPin: GPIOName, swiftyGPIOs: [GPIOName: GPIO]) {
         self.gpioPin = gpioPin
         
