@@ -16,5 +16,9 @@ public class LED {
     public func isOff() -> Bool {
         return value == 0
     }
-    
+
+    public func isOn() -> Bool {
+        return value == 1
+    }
+
 }
